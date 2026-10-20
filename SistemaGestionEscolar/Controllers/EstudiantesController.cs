@@ -19,15 +19,15 @@ public class EstudiantesController : Controller
     }
 
     // GET: ESTUDIANTES/Details/5
-    public async Task<IActionResult> Details(int? id)
+    public async Task<IActionResult> Details(int? estudianteid)
     {
-        if (id == null)
+        if (estudianteid == null)
         {
             return NotFound();
         }
 
         var estudiante = await _context.Estudiante
-            .FirstOrDefaultAsync(m => m.Id == id);
+            .FirstOrDefaultAsync(m => m.estudianteId == estudianteid);
         if (estudiante == null)
         {
             return NotFound();
@@ -47,7 +47,7 @@ public class EstudiantesController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Id,Nombre,Apellido,Curso")] Estudiante estudiante)
+    public async Task<IActionResult> Create([Bind("estudianteId,estudianteNombre,estudianteApellido,estudianteCurso")] Estudiante estudiante)
     {
         if (ModelState.IsValid)
         {
@@ -59,14 +59,14 @@ public class EstudiantesController : Controller
     }
 
     // GET: ESTUDIANTES/Edit/5
-    public async Task<IActionResult> Edit(int? id)
+    public async Task<IActionResult> Edit(int? estudianteid)
     {
-        if (id == null)
+        if (estudianteid == null)
         {
             return NotFound();
         }
 
-        var estudiante = await _context.Estudiante.FindAsync(id);
+        var estudiante = await _context.Estudiante.FindAsync(estudianteid);
         if (estudiante == null)
         {
             return NotFound();
@@ -79,9 +79,9 @@ public class EstudiantesController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int? id, [Bind("Id,Nombre,Apellido,Curso")] Estudiante estudiante)
+    public async Task<IActionResult> Edit(int? estudianteid, [Bind("estudianteId,estudianteNombre,estudianteApellido,estudianteCurso")] Estudiante estudiante)
     {
-        if (id != estudiante.Id)
+        if (estudianteid != estudiante.estudianteId)
         {
             return NotFound();
         }
@@ -95,7 +95,7 @@ public class EstudiantesController : Controller
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EstudianteExists(estudiante.Id))
+                if (!EstudianteExists(estudiante.estudianteId))
                 {
                     return NotFound();
                 }
@@ -110,15 +110,15 @@ public class EstudiantesController : Controller
     }
 
     // GET: ESTUDIANTES/Delete/5
-    public async Task<IActionResult> Delete(int? id)
+    public async Task<IActionResult> Delete(int? estudianteid)
     {
-        if (id == null)
+        if (estudianteid == null)
         {
             return NotFound();
         }
 
         var estudiante = await _context.Estudiante
-            .FirstOrDefaultAsync(m => m.Id == id);
+            .FirstOrDefaultAsync(m => m.estudianteId == estudianteid);
         if (estudiante == null)
         {
             return NotFound();
@@ -130,9 +130,9 @@ public class EstudiantesController : Controller
     // POST: ESTUDIANTES/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteConfirmed(int? id)
+    public async Task<IActionResult> DeleteConfirmed(int? estudianteid)
     {
-        var estudiante = await _context.Estudiante.FindAsync(id);
+        var estudiante = await _context.Estudiante.FindAsync(estudianteid);
         if (estudiante != null)
         {
             _context.Estudiante.Remove(estudiante);
@@ -142,8 +142,8 @@ public class EstudiantesController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    private bool EstudianteExists(int? id)
+    private bool EstudianteExists(int? estudianteid)
     {
-        return _context.Estudiante.Any(e => e.Id == id);
+        return _context.Estudiante.Any(e => e.estudianteId == estudianteid);
     }
 }

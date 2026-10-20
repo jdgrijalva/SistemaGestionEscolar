@@ -5,7 +5,7 @@
 namespace SistemaGestionEscolar.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialCrate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -14,15 +14,15 @@ namespace SistemaGestionEscolar.Migrations
                 name: "Estudiante",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    estudianteId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Apellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Curso = table.Column<int>(type: "int", nullable: false)
+                    estudianteNombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    estudianteApellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    estudianteCurso = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Estudiante", x => x.Id);
+                    table.PrimaryKey("PK_Estudiante", x => x.estudianteId);
                 });
         }
 

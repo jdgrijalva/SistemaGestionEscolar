@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace SistemaGestionEscolar.Migrations
 {
     [DbContext(typeof(SistemaGestionEscolarContext))]
-    [Migration("20261020220213_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20261020224239_InitialCrate")]
+    partial class InitialCrate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,24 +25,25 @@ namespace SistemaGestionEscolar.Migrations
 
             modelBuilder.Entity("SistemaGestionEscolar.Models.Estudiante", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("estudianteId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("estudianteId"));
 
-                    b.Property<string>("Apellido")
+                    b.Property<string>("estudianteApellido")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Curso")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Nombre")
+                    b.Property<string>("estudianteCurso")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("estudianteNombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("estudianteId");
 
                     b.ToTable("Estudiante");
                 });

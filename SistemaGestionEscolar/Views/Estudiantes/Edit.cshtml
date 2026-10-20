@@ -12,21 +12,21 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="estudianteId" />
             <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
+                <label asp-for="estudianteNombre" class="control-label"></label>
+                <input asp-for="estudianteNombre" class="form-control" />
+                <span asp-validation-for="estudianteNombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Apellido" class="control-label"></label>
-                <input asp-for="Apellido" class="form-control" />
-                <span asp-validation-for="Apellido" class="text-danger"></span>
+                <label asp-for="estudianteApellido" class="control-label"></label>
+                <input asp-for="estudianteApellido" class="form-control" />
+                <span asp-validation-for="estudianteApellido" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Curso" class="control-label"></label>
-                <input asp-for="Curso" class="form-control" />
-                <span asp-validation-for="Curso" class="text-danger"></span>
+                <label asp-for="estudianteCurso" class="control-label"></label>
+                <input asp-for="estudianteCurso" class="form-control" />
+                <span asp-validation-for="estudianteCurso" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
