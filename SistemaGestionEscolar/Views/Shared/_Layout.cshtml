@@ -34,6 +34,12 @@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
+            <div class="d-flex justify-content-center align-items-center gap-2">
+            <a class="btn btn-primary" asp-controller="Estudiantes" asp-action="Index">CRUD<br />Estudiantes</a>
+            <a class="btn btn-secondary" asp-controller="Maestros" asp-action="Index">CRUD<br />Maestros</a>
+            <a class="btn btn-danger" asp-controller="Aulas" asp-action="Index">CRUD<br />Aulas</a>
+            <a class="btn btn-dark" asp-controller="Libros" asp-action="Index">CRUD<br />Libros</a>
+            </div>
         </main>
     </div>
 

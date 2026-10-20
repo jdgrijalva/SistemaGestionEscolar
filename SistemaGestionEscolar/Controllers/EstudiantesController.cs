@@ -19,15 +19,15 @@ public class EstudiantesController : Controller
     }
 
     // GET: ESTUDIANTES/Details/5
-    public async Task<IActionResult> Details(int? estudianteid)
+    public async Task<IActionResult> Details(int? id)
     {
-        if (estudianteid == null)
+        if (id == null)
         {
             return NotFound();
         }
 
         var estudiante = await _context.Estudiante
-            .FirstOrDefaultAsync(m => m.estudianteId == estudianteid);
+            .FirstOrDefaultAsync(m => m.estudianteId == id);
         if (estudiante == null)
         {
             return NotFound();
@@ -59,14 +59,14 @@ public class EstudiantesController : Controller
     }
 
     // GET: ESTUDIANTES/Edit/5
-    public async Task<IActionResult> Edit(int? estudianteid)
+    public async Task<IActionResult> Edit(int? id)
     {
-        if (estudianteid == null)
+        if (id == null)
         {
             return NotFound();
         }
 
-        var estudiante = await _context.Estudiante.FindAsync(estudianteid);
+        var estudiante = await _context.Estudiante.FindAsync(id);
         if (estudiante == null)
         {
             return NotFound();
@@ -79,9 +79,9 @@ public class EstudiantesController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int? estudianteid, [Bind("estudianteId,estudianteNombre,estudianteApellido,estudianteCurso")] Estudiante estudiante)
+    public async Task<IActionResult> Edit(int? id, [Bind("estudianteId,estudianteNombre,estudianteApellido,estudianteCurso")] Estudiante estudiante)
     {
-        if (estudianteid != estudiante.estudianteId)
+        if (id != estudiante.estudianteId)
         {
             return NotFound();
         }
@@ -110,15 +110,15 @@ public class EstudiantesController : Controller
     }
 
     // GET: ESTUDIANTES/Delete/5
-    public async Task<IActionResult> Delete(int? estudianteid)
+    public async Task<IActionResult> Delete(int? id)
     {
-        if (estudianteid == null)
+        if (id == null)
         {
             return NotFound();
         }
 
         var estudiante = await _context.Estudiante
-            .FirstOrDefaultAsync(m => m.estudianteId == estudianteid);
+            .FirstOrDefaultAsync(m => m.estudianteId == id);
         if (estudiante == null)
         {
             return NotFound();
@@ -130,9 +130,9 @@ public class EstudiantesController : Controller
     // POST: ESTUDIANTES/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteConfirmed(int? estudianteid)
+    public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var estudiante = await _context.Estudiante.FindAsync(estudianteid);
+        var estudiante = await _context.Estudiante.FindAsync(id);
         if (estudiante != null)
         {
             _context.Estudiante.Remove(estudiante);
@@ -142,8 +142,8 @@ public class EstudiantesController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    private bool EstudianteExists(int? estudianteid)
+    private bool EstudianteExists(int? id)
     {
-        return _context.Estudiante.Any(e => e.estudianteId == estudianteid);
+        return _context.Estudiante.Any(e => e.estudianteId == id);
     }
 }

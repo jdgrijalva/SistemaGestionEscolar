@@ -1,0 +1,52 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - link "SistemaGestionEscolar" [ref=e5] [cursor=pointer]:
+          - /url: /
+        - list [ref=e7]:
+          - listitem [ref=e8]:
+            - link "Home" [ref=e9] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e10]:
+            - link "Privacy" [ref=e11] [cursor=pointer]:
+              - /url: /Home/Privacy
+  - main [ref=e13]:
+    - heading "Edit" [level=1] [ref=e14]
+    - heading "Estudiante" [level=4] [ref=e15]
+    - separator [ref=e16]
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]: estudianteNombre
+        - textbox "estudianteNombre" [ref=e22]: Joustin
+      - generic [ref=e23]:
+        - generic [ref=e24]: estudianteApellido
+        - textbox "estudianteApellido" [ref=e25]: Grijalva
+      - generic [ref=e26]:
+        - generic [ref=e27]: estudianteCurso
+        - textbox "estudianteCurso" [ref=e28]: "6"
+      - button "Save" [ref=e30] [cursor=pointer]
+    - link "Back to List" [ref=e32] [cursor=pointer]:
+      - /url: /Estudiantes
+    - generic [ref=e33]:
+      - link "CRUD Estudiantes" [ref=e34] [cursor=pointer]:
+        - /url: /Estudiantes
+        - text: CRUD
+        - text: Estudiantes
+      - link "CRUD Maestros" [ref=e35] [cursor=pointer]:
+        - /url: /Maestros
+        - text: CRUD
+        - text: Maestros
+      - link "CRUD Aulas" [ref=e36] [cursor=pointer]:
+        - /url: /Aulas
+        - text: CRUD
+        - text: Aulas
+      - link "CRUD Libros" [ref=e37] [cursor=pointer]:
+        - /url: /Libros
+        - text: CRUD
+        - text: Libros
+  - contentinfo [ref=e38]:
+    - generic [ref=e39]:
+      - text: © 2026 - SistemaGestionEscolar -
+      - link "Privacy" [ref=e40] [cursor=pointer]:
+        - /url: /Home/Privacy
