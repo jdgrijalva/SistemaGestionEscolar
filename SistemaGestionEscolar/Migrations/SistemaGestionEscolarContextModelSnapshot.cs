@@ -20,6 +20,26 @@ namespace SistemaGestionEscolar.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("SistemaGestionEscolar.Models.Aula", b =>
+                {
+                    b.Property<int>("aulaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("aulaId"));
+
+                    b.Property<int>("aulaCapacidad")
+                        .HasColumnType("int");
+
+                    b.Property<string>("aulaNombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("aulaId");
+
+                    b.ToTable("Aula");
+                });
+
             modelBuilder.Entity("SistemaGestionEscolar.Models.Estudiante", b =>
                 {
                     b.Property<int>("estudianteId")
