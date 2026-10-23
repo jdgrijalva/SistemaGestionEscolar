@@ -44,6 +44,31 @@ namespace SistemaGestionEscolar.Migrations
 
                     b.ToTable("Estudiante");
                 });
+
+            modelBuilder.Entity("SistemaGestionEscolar.Models.Maestro", b =>
+                {
+                    b.Property<int>("maestroId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("maestroId"));
+
+                    b.Property<string>("maestroApellido")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("maestroEspecialidad")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("maestroNombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("maestroId");
+
+                    b.ToTable("Maestro");
+                });
 #pragma warning restore 612, 618
         }
     }
