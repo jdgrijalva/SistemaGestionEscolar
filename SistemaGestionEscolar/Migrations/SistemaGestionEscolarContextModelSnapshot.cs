@@ -65,6 +65,30 @@ namespace SistemaGestionEscolar.Migrations
                     b.ToTable("Estudiante");
                 });
 
+            modelBuilder.Entity("SistemaGestionEscolar.Models.Libro", b =>
+                {
+                    b.Property<int>("libroId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("libroId"));
+
+                    b.Property<int>("libroAnioPublicacion")
+                        .HasColumnType("int");
+
+                    b.Property<string>("libroAutor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("libroTitulo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("libroId");
+
+                    b.ToTable("Libros");
+                });
+
             modelBuilder.Entity("SistemaGestionEscolar.Models.Maestro", b =>
                 {
                     b.Property<int>("maestroId")

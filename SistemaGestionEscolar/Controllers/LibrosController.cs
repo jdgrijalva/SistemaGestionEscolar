@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SistemaGestionEscolar.Models;
 
-public class LibroesController : Controller
+public class LibrosController : Controller
 {
     private readonly SistemaGestionEscolarContext _context;
 
-    public LibroesController(SistemaGestionEscolarContext context)
+    public LibrosController(SistemaGestionEscolarContext context)
     {
         _context = context;
     }
@@ -19,15 +19,15 @@ public class LibroesController : Controller
     }
 
     // GET: LIBROS/Details/5
-    public async Task<IActionResult> Details(int? libroid)
+    public async Task<IActionResult> Details(int? id)
     {
-        if (libroid == null)
+        if (id == null)
         {
             return NotFound();
         }
 
         var libro = await _context.Libros
-            .FirstOrDefaultAsync(m => m.libroId == libroid);
+            .FirstOrDefaultAsync(m => m.libroId == id);
         if (libro == null)
         {
             return NotFound();
@@ -59,14 +59,14 @@ public class LibroesController : Controller
     }
 
     // GET: LIBROS/Edit/5
-    public async Task<IActionResult> Edit(int? libroid)
+    public async Task<IActionResult> Edit(int? id)
     {
-        if (libroid == null)
+        if (id == null)
         {
             return NotFound();
         }
 
-        var libro = await _context.Libros.FindAsync(libroid);
+        var libro = await _context.Libros.FindAsync(id);
         if (libro == null)
         {
             return NotFound();
@@ -110,15 +110,15 @@ public class LibroesController : Controller
     }
 
     // GET: LIBROS/Delete/5
-    public async Task<IActionResult> Delete(int? libroid)
+    public async Task<IActionResult> Delete(int? id)
     {
-        if (libroid == null)
+        if (id == null)
         {
             return NotFound();
         }
 
         var libro = await _context.Libros
-            .FirstOrDefaultAsync(m => m.libroId == libroid);
+            .FirstOrDefaultAsync(m => m.libroId == id);
         if (libro == null)
         {
             return NotFound();
@@ -130,9 +130,9 @@ public class LibroesController : Controller
     // POST: LIBROS/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteConfirmed(int? libroid)
+    public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var libro = await _context.Libros.FindAsync(libroid);
+        var libro = await _context.Libros.FindAsync(id);
         if (libro != null)
         {
             _context.Libros.Remove(libro);
@@ -142,8 +142,8 @@ public class LibroesController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    private bool LibroExists(int? libroid)
+    private bool LibroExists(int? id)
     {
-        return _context.Libros.Any(e => e.libroId == libroid);
+        return _context.Libros.Any(e => e.libroId == id);
     }
 }
